@@ -1,0 +1,34 @@
+{
+  "name": "gmail-subscription-cleaner",
+  "version": "1.0.0",
+  "description": "Браузерное расширение для очистки подписок и массового удаления писем в Gmail",
+  "main": "background/background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Linting not configured yet\"",
+    "build": "echo \"Build script not configured yet\"",
+    "zip": "zip -r gmail-cleaner-extension.zip . -x '*.git*' -x 'node_modules/*' -x '*.zip' -x '.DS_Store'"
+  },
+  "keywords": [
+    "gmail",
+    "email",
+    "subscription",
+    "cleaner",
+    "unsubscribe",
+    "chrome-extension",
+    "productivity"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/gmail-cleaner-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/gmail-cleaner-extension/issues"
+  },
+  "homepage": "https://github.com/yourusername/gmail-cleaner-extension#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
+

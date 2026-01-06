@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Gmail Subscription Cleaner",
+  "version": "1.0.0",
+  "description": "Быстрая очистка подписок и массовое удаление писем в Gmail",
+  "permissions": [
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "203966542028-tt8293j82nqv80jr8v0kqee46f8slfj7.apps.googleusercontent.com",
+    "scopes": [
+      "https://mail.google.com/"
+    ]
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon_16.png",
+      "48": "assets/icons/icon_48.png",
+      "128": "assets/icons/icon_128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "icons": {
+    "16": "assets/icons/icon_16.png",
+    "48": "assets/icons/icon_48.png",
+    "128": "assets/icons/icon_128.png"
+  }
+}
+

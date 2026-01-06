@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Subscription Cleaner</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Заголовок -->
+    <header class="header">
+      <h1>Gmail Subscription Cleaner</h1>
+    </header>
+
+    <!-- Экран авторизации -->
+    <div id="auth-screen" class="screen">
+      <div class="auth-content">
+        <p>Для начала работы необходимо авторизоваться в Gmail</p>
+        <button id="auth-button" class="btn btn-primary">
+          Войти через Google
+        </button>
+      </div>
+    </div>
+
+    <!-- Основной экран -->
+    <div id="main-screen" class="screen hidden">
+      <!-- Стартовый экран -->
+      <div id="start-screen" class="start-screen">
+        <div class="start-content">
+          <p>Нажмите кнопку для анализа писем</p>
+          <button id="start-button" class="btn btn-primary btn-large">
+            🔍 Начать анализ
+          </button>
+        </div>
+      </div>
+
+      <!-- Статистика -->
+      <section class="stats hidden">
+        <div class="stat-item">
+          <span class="stat-label">Всего писем:</span>
+          <span id="total-emails" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Непрочитанных:</span>
+          <span id="unread-emails" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Отправителей:</span>
+          <span id="total-senders" class="stat-value">0</span>
+        </div>
+      </section>
+
+      <!-- Поиск и фильтры -->
+      <section class="search-section hidden">
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Поиск отправителей..."
+        >
+        <label class="checkbox-label">
+          <input type="checkbox" id="unread-filter">
+          <span>Только с непрочитанными</span>
+        </label>
+      </section>
+
+      <!-- Прогресс-бар -->
+      <div id="progress-container" class="progress-container hidden">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="progress-text" class="progress-text">Загрузка...</p>
+      </div>
+
+      <!-- Список отправителей -->
+      <section class="senders-section hidden">
+        <div id="senders-list" class="senders-list">
+          <!-- Динамически заполняется через JS -->
+        </div>
+        <div id="empty-state" class="empty-state hidden">
+          <p>Отправители не найдены</p>
+        </div>
+      </section>
+
+      <!-- Кнопки управления -->
+      <section class="actions-section hidden">
+        <button id="refresh-button" class="btn btn-secondary">
+          Обновить данные
+        </button>
+        <button id="settings-button" class="btn btn-secondary">
+          Настройки
+        </button>
+      </section>
+    </div>
+
+    <!-- Экран настроек -->
+    <div id="settings-screen" class="screen hidden">
+      <div class="settings-header">
+        <button id="back-button" class="btn-icon">← Назад</button>
+        <h2>Настройки</h2>
+      </div>
+
+      <section class="settings-content">
+        <h3>Белый список</h3>
+        <p class="help-text">
+          Отправители из белого списка защищены от случайного удаления
+        </p>
+        <div id="whitelist-container" class="whitelist-container">
+          <!-- Динамически заполняется через JS -->
+        </div>
+        <div class="whitelist-add">
+          <input 
+            type="email" 
+            id="whitelist-input" 
+            placeholder="email@example.com"
+            class="input"
+          >
+          <button id="add-whitelist-button" class="btn btn-primary">
+            Добавить
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Модальное окно подтверждения -->
+    <div id="confirm-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modal-title">Подтверждение</h3>
+        <p id="modal-message">Вы уверены?</p>
+        <div class="modal-actions">
+          <button id="modal-cancel" class="btn btn-secondary">Отмена</button>
+          <button id="modal-confirm" class="btn btn-danger">Подтвердить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

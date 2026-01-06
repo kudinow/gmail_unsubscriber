@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Chrome Extension
+*.pem
+*.crx
+*.zip
+
+# Temporary files
+tmp/
+temp/
